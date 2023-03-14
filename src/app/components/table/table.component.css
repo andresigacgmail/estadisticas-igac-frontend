@@ -1,0 +1,27 @@
+/*@import "~bootstrap-icons/font/bootstrap-icons.css";*/
+
+.card {
+  background-color: whitesmoke;
+  box-shadow: 5px 5px 7px #6f8074;
+  transition: background-color 1s, transform 1s;
+}
+
+.card:hover {
+  cursor: pointer;
+  /*transform: translate(0px, -20px);*/
+  transform: scale(1.02);
+  background-color: #dedbdb;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+i {
+  float: right;
+}
+
+
+
+
