@@ -1,3 +1,13 @@
 nav {
   height: 100px;
 }
+
+.center {
+  display: flex;
+  align-items: center;
+  margin-right: 10vw;
+}
+
+a {
+  margin-right: 10vw;
+}

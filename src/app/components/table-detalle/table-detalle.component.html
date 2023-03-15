@@ -1,0 +1,24 @@
+<table class="table table-striped mt-5">
+  <thead>
+  <tr>
+    <th scope="col">Disco Total</th>
+    <th scope="col">Disco Disponible</th>
+    <th scope="col">Disco Uso</th>
+    <th scope="col">Memoria Total</th>
+    <th scope="col">Memoria Disponible</th>
+    <th scope="col">Memoria Uso</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let estadistica of estadisticas">
+    <th scope="row">{{estadistica.disco_total}}</th>
+    <td>{{estadistica.disco_disponible}}</td>
+    <td>{{estadistica.disco_uso}}</td>
+    <td>{{estadistica.memoria_total}}</td>
+    <td>{{estadistica.Memoria_disponible}}</td>
+    <td>{{estadistica.memoria_uso}}</td>
+  </tr>
+
+
+  </tbody>
+</table>

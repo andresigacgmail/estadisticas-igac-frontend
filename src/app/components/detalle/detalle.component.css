@@ -14,3 +14,19 @@
   height: 300px;
   width: 400px;
 }
+
+.blue {
+  color: #58b0e0;
+}
+
+.yellow {
+  color: #e8bb49;
+}
+
+.green {
+  color: #7fbd67;
+}
+
+.offcanvas {
+  background-color: whitesmoke;
+}

@@ -1,31 +1,7 @@
-<a routerLink="/detalle/1">
+<a *ngFor="let servidor of servidores" routerLink="/detalle/{{servidor.id}}">
   <div class="card mt-3">
     <div class="card-body">
-      This is some text within a card body. <i class="bi bi-caret-right-fill"></i>
-    </div>
-  </div>
-</a>
-
-<a routerLink="/detalle/2">
-  <div class="card mt-3">
-    <div class="card-body">
-      This is some text within a card body. <i class="bi bi-caret-right-fill"></i>
-    </div>
-  </div>
-</a>
-
-<a routerLink="/detalle/3">
-  <div class="card mt-3">
-    <div class="card-body">
-      This is some text within a card body. <i class="bi bi-caret-right-fill"></i>
-    </div>
-  </div>
-</a>
-
-<a routerLink="/detalle/4">
-  <div class="card mt-3">
-    <div class="card-body">
-      This is some text within a card body. <i class="bi bi-caret-right-fill"></i>
+      {{servidor.nombre}} <i class="bi bi-caret-right-fill"></i>
     </div>
   </div>
 </a>

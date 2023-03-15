@@ -1,13 +1,13 @@
 <div class="center mt-5">
   <div class="card text-bg-secondary mb-3" style="max-width: 48rem;">
-    <div class="card-header">Server 1</div>
+    <div class="card-header">{{servidor.nombre}}</div>
     <div class="card-body">
-      <h5 class="card-title">ip publica: 192.168.20.12</h5>
-      <p class="card-text">ip local: 10.0.0.1</p>
+      <h5 class="card-title">ip publica: {{servidor.ip_publica}}</h5>
+      <p class="card-text">ip local: {{servidor.ip_local}}</p>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><span>Total</span>40</li>
-        <li class="list-group-item"><span>En Uso</span>8</li>
-        <li class="list-group-item"><span>Disponible</span>32</li>
+        <li class="list-group-item green"><span class="green">Total: </span>{{disco.disco_total}}</li>
+        <li class="list-group-item yellow"><span class="yellow">En Uso: </span>{{disco.disco_uso}}</li>
+        <li class="list-group-item blue"><span class="blue">Disponible: </span>{{disco.disco_disponible}}</li>
       </ul>
     </div>
   </div>
@@ -18,36 +18,64 @@
 
 </div>
 
+<hr class="mt-5">
+
+<a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  Consultar
+</a>
+<!--<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Button with data-bs-target
+</button>-->
+
+<app-table-detalle [estadisticas]="estadisticas"></app-table-detalle>
 
 
-<table class="table table-striped mt-5">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Handle</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td colspan="2">Larry the Bird</td>
-    <td>@twitter</td>
-  </tr>
-  </tbody>
-</table>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filtro</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Año
+    </div>
+    <div class="dropdown mt-3">
+      <select class="form-select" aria-label="Default select example" (change)="cambiarAno($event)">
+        <option selected></option>
+        <option *ngFor="let ano of listaAnos" value="{{ano}}">{{ano}}</option>
+      </select>
+    </div>
+
+    <div>
+      Mes
+    </div>
+    <div class="dropdown mt-3">
+      <select class="form-select" aria-label="Default select example" (change)="cambiarMes($event)">
+        <option selected></option>
+        <option *ngFor="let mes of listaMeses" value="{{mes.value}}">{{mes.mes}}</option>
+      </select>
+    </div>
+
+    <div>
+      Día
+    </div>
+    <div class="dropdown mt-3">
+      <select class="form-select" aria-label="Default select example" (change)="cambiarDia($event)">
+        <option selected></option>
+        <option *ngFor="let dia of listaDias" value="{{dia}}">{{dia}}</option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2 mt-5">
+      <button class="btn btn-outline-info" data-bs-dismiss="offcanvas" (click)="consultarEstadisticasFecha()">Consultar</button>
+    </div>
+
+
+  </div>
+
+
+</div>
 
 
