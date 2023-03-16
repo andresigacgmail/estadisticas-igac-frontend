@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div id="divChart">
+  <div id="divPie">
     <canvas id="myChart"></canvas>
   </div>
 
@@ -27,7 +27,22 @@
   Button with data-bs-target
 </button>-->
 
-<app-table-detalle [estadisticas]="estadisticas"></app-table-detalle>
+
+<div class="container">
+  <div class="row">
+    <div class="col center">
+      <div id="divBarra" class="mt-5">
+        <canvas id="myChart2"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <app-table-detalle [estadisticas]="estadisticas"></app-table-detalle>
+
+
+
+</div>
+
 
 
 

@@ -17,8 +17,8 @@ export class EstadisticaService {
     return this._http.get(this.URL+"estadistica/grupo/"+id)
   }
 
-  consultarEstadisticasFecha(ano:string, mes:string, dia:string){
-    return this._http.get(this.URL);
+  consultarEstadisticasFecha(id: string | null, ano: string, mes: string | null, dia: string){
+    return this._http.get(this.URL+`estadistica/ano?id_servidor=${id}&ano=${ano}&mes=${mes}&dia=${dia}`);
   }
 
 

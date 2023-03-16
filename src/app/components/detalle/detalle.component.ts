@@ -13,6 +13,21 @@ import {Disco} from "../../modelos/Disco";
 })
 export class DetalleComponent implements OnInit {
 
+  dataMeses:Array<any> = [
+    { mes: "Enero", valor:1,  count: 0 },
+    { mes: "Fabrero", valor:2, count: 0 },
+    { mes: "Marzo", valor:3, count: 0 },
+    { mes: "Abril", valor:4, count: 0 },
+    { mes: "Mayo", valor:5, count: 0 },
+    { mes: "Junio", valor:6, count: 0 },
+    { mes: "Julio",valor:7, count: 0 },
+    { mes: "Agosto", valor:8, count: 0 },
+    { mes: "Septiembre", valor:9, count: 0 },
+    { mes: "octubre", valor:10, count: 0 },
+    { mes: "Noviembre", valor:11, count: 0 },
+    { mes: "Diciembre", valor:12, count: 0 }
+  ];
+
   data:Array<number> = [32, 8];
   listaAnos:Array<string> = [];
   listaMeses:Array<any> = [
@@ -50,66 +65,16 @@ export class DetalleComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private estadisticaService: EstadisticaService ) { }
 
-  /*id:any = "";*/
+  id:string | null = "";
   ngOnInit(): void {
-
+    this.id = this.route.snapshot.paramMap.get('id');
     this.obtenerServidorDetalles();
-
-    /*(async function() {*/
-      /*const data = [
-        { year: 2010, count: 10 },
-        { year: 2011, count: 20 },
-        { year: 2012, count: 15 },
-        { year: 2013, count: 25 },
-        { year: 2014, count: 22 },
-        { year: 2015, count: 30 },
-        { year: 2016, count: 28 },
-      ];*/
-
-      // GRAFICO DE BARRAS
-      // new Chart('myChart',
-      //   {
-      //     type: 'bar',
-      //     data: {
-      //       labels: data.map(row => row.year),
-      //       datasets: [
-      //         {
-      //           label: 'Acquisitions by year',
-      //           data: data.map(row => row.count)
-      //         }
-      //       ]
-      //     }
-      //   }
-      // );
-
-      /*new Chart('myChart',
-        {
-          type: 'pie',
-          data: {
-            labels: [
-              'Disponible',
-              'En Uso'
-            ],
-            datasets: [{
-              label: 'Hdd',
-              data: this.data,
-              backgroundColor: [
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
-              ],
-              hoverOffset: 4
-            }]
-          }
-        }
-      );
-    })();*/
-
-
+    this.cargarGraficaBarra();
   }
 
   obtenerServidorDetalles(){
-    this.estadisticaService.cargarEstadisticasServidor(this.route.snapshot.paramMap.get('id')).subscribe(estadistica => {
-      console.log((estadistica))
+    this.estadisticaService.cargarEstadisticasServidor(this.id).subscribe(estadistica => {
+      // console.log((estadistica))
       this.servidor = estadistica.servidor;
       this.estadisticas = estadistica.estadisticas;
       this.listaAnos = estadistica.anos;
@@ -147,7 +112,42 @@ export class DetalleComponent implements OnInit {
 
 
   consultarEstadisticasFecha(){
+    console.log(this.id)
+    console.log(this.ano)
+    console.log(this.mes)
+    console.log(this.dia)
+    this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
+      let meses, tamanoTotal = estadisticas;
+    });
+  }
 
+  cargarGraficaBarra(){
+
+    const data = [
+      { year: 2010, count: 10 },
+      { year: 2011, count: 20 },
+      { year: 2012, count: 15 },
+      { year: 2013, count: 25 },
+      { year: 2014, count: 22 },
+      { year: 2015, count: 30 },
+      { year: 2016, count: 28 },
+    ];
+
+    // GRAFICO DE BARRAS
+    new Chart('myChart2',
+      {
+        type: 'bar',
+        data: {
+          labels: data.map(row => row.year),
+          datasets: [
+            {
+              label: 'Acquisitions by year',
+              data: data.map(row => row.count)
+            }
+          ]
+        }
+      }
+    );
   }
 
 
