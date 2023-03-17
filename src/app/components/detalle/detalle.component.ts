@@ -13,21 +13,8 @@ import {Disco} from "../../modelos/Disco";
 })
 export class DetalleComponent implements OnInit {
 
-  dataMeses:Array<any> = [
-    { mes: "Enero", valor:1,  count: 0 },
-    { mes: "Fabrero", valor:2, count: 0 },
-    { mes: "Marzo", valor:3, count: 0 },
-    { mes: "Abril", valor:4, count: 0 },
-    { mes: "Mayo", valor:5, count: 0 },
-    { mes: "Junio", valor:6, count: 0 },
-    { mes: "Julio",valor:7, count: 0 },
-    { mes: "Agosto", valor:8, count: 0 },
-    { mes: "Septiembre", valor:9, count: 0 },
-    { mes: "octubre", valor:10, count: 0 },
-    { mes: "Noviembre", valor:11, count: 0 },
-    { mes: "Diciembre", valor:12, count: 0 }
-  ];
-
+  char:any;
+  dataMeses:any = [];
   data:Array<number> = [32, 8];
   listaAnos:Array<string> = [];
   listaMeses:Array<any> = [
@@ -63,13 +50,13 @@ export class DetalleComponent implements OnInit {
   mes:string = "";
   dia:string = "";
 
+
   constructor(private route: ActivatedRoute, private estadisticaService: EstadisticaService ) { }
 
   id:string | null = "";
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.obtenerServidorDetalles();
-    this.cargarGraficaBarra();
   }
 
   obtenerServidorDetalles(){
@@ -117,37 +104,30 @@ export class DetalleComponent implements OnInit {
     console.log(this.mes)
     console.log(this.dia)
     this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
-      let meses, tamanoTotal = estadisticas;
+        console.log(estadisticas.meses)
+      this.dataMeses = estadisticas.meses;
+        this.cargarGraficaBarra(this.dataMeses);
     });
   }
 
-  cargarGraficaBarra(){
-
-    const data = [
-      { year: 2010, count: 10 },
-      { year: 2011, count: 20 },
-      { year: 2012, count: 15 },
-      { year: 2013, count: 25 },
-      { year: 2014, count: 22 },
-      { year: 2015, count: 30 },
-      { year: 2016, count: 28 },
-    ];
+  cargarGraficaBarra(datameses:any){
 
     // GRAFICO DE BARRAS
     new Chart('myChart2',
       {
         type: 'bar',
         data: {
-          labels: data.map(row => row.year),
+          labels: this.dataMeses.map((row: { mes: any; }) => row.mes),
           datasets: [
             {
-              label: 'Acquisitions by year',
-              data: data.map(row => row.count)
+              label: 'Incremento por año',
+              data: this.dataMeses.map((row: { uso: any; }) => row.uso)
             }
           ]
         }
       }
     );
+
   }
 
 

@@ -17,7 +17,7 @@ export class EstadisticaService {
     return this._http.get(this.URL+"estadistica/grupo/"+id)
   }
 
-  consultarEstadisticasFecha(id: string | null, ano: string, mes: string | null, dia: string){
+  consultarEstadisticasFecha(id: string | null, ano: string, mes: string | null, dia: string):Observable<any>{
     return this._http.get(this.URL+`estadistica/ano?id_servidor=${id}&ano=${ano}&mes=${mes}&dia=${dia}`);
   }
 
