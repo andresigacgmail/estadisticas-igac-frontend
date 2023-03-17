@@ -13,7 +13,8 @@ import {Disco} from "../../modelos/Disco";
 })
 export class DetalleComponent implements OnInit {
 
-  char:any;
+  chart:any;
+  tamanoTotal:string = "";
   dataMeses:any = [];
   data:Array<number> = [32, 8];
   listaAnos:Array<string> = [];
@@ -75,6 +76,8 @@ export class DetalleComponent implements OnInit {
   }
 
   private cargarGraficoPie(data:Array<number>){
+
+
     new Chart('myChart',
       {
         type: 'pie',
@@ -103,24 +106,42 @@ export class DetalleComponent implements OnInit {
     console.log(this.ano)
     console.log(this.mes)
     console.log(this.dia)
-    this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
-        console.log(estadisticas.meses)
-      this.dataMeses = estadisticas.meses;
-        this.cargarGraficaBarra(this.dataMeses);
-    });
+
+    if(this.ano != "" && this.mes != "" && this.dia != ""){
+      // Función
+    }else if(this.ano != "" && this.mes != "" && this.dia == ""){
+      this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
+        this.tamanoTotal = estadisticas.tamanoTotal;
+        this.dataMeses = estadisticas.meses;
+        this.cargarGraficaBarra(this.dataMeses, this.tamanoTotal);
+      });
+    }else if(this.ano != "" && this.mes == "" && this.dia == ""){
+      this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
+        this.tamanoTotal = estadisticas.tamanoTotal;
+        this.dataMeses = estadisticas.meses;
+        this.cargarGraficaBarra(this.dataMeses, this.tamanoTotal);
+      });
+    }
+
+
+
   }
 
-  cargarGraficaBarra(datameses:any){
+  cargarGraficaBarra(datameses:any, tamanoTotal:string){
 
+
+    if(this.chart!=null){
+      this.chart.destroy();
+    }
     // GRAFICO DE BARRAS
-    new Chart('myChart2',
+    this.chart = new Chart('myChart2',
       {
         type: 'bar',
         data: {
           labels: this.dataMeses.map((row: { mes: any; }) => row.mes),
           datasets: [
             {
-              label: 'Incremento por año',
+              label: `Incremento por año, Tamaño Max: ${tamanoTotal}`,
               data: this.dataMeses.map((row: { uso: any; }) => row.uso)
             }
           ]
