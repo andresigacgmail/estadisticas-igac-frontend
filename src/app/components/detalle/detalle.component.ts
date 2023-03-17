@@ -5,6 +5,7 @@ import {Estadistica} from "../../modelos/Estadistica";
 import { EstadisticaService } from "../../services/estadistica.service";
 import {Servidor} from "../../modelos/Servidor";
 import {Disco} from "../../modelos/Disco";
+import { jsPDF } from "jspdf";
 
 @Component({
   selector: 'app-detalle',
@@ -62,7 +63,6 @@ export class DetalleComponent implements OnInit {
 
   obtenerServidorDetalles(){
     this.estadisticaService.cargarEstadisticasServidor(this.id).subscribe(estadistica => {
-      // console.log((estadistica))
       this.servidor = estadistica.servidor;
       this.estadisticas = estadistica.estadisticas;
       this.listaAnos = estadistica.anos;
@@ -108,7 +108,11 @@ export class DetalleComponent implements OnInit {
     console.log(this.dia)
 
     if(this.ano != "" && this.mes != "" && this.dia != ""){
-      // Función
+      this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
+        console.log(estadisticas)
+        this.estadisticas = estadisticas.estadisticas;
+      });
+
     }else if(this.ano != "" && this.mes != "" && this.dia == ""){
       this.estadisticaService.consultarEstadisticasFecha(this.id, this.ano, this.mes, this.dia).subscribe(estadisticas => {
         this.tamanoTotal = estadisticas.tamanoTotal;
@@ -161,4 +165,52 @@ export class DetalleComponent implements OnInit {
   cambiarDia(evento:any) {
     this.dia = evento.target.value;
   }
+
+  imprimir() {
+    const doc = new jsPDF();
+
+    // doc.html(document.querySelector('#body'), function() {
+    //   doc.save('documentoPDF1.pdf');
+    // });
+
+
+      // window.print();
+
+
+    doc.html(document.body, {
+      callback: function (doc) {
+        doc.save();
+      },x:0, y:0, windowWidth: 4500});
+
+    // doc.text("Hello world!", 10, 10);
+    // doc.save("a4.pdf");
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

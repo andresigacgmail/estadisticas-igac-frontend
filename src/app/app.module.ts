@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { TableDetalleComponent } from './components/table-detalle/table-detalle.component';
 import { HttpClientModule} from "@angular/common/http";
+import { FormatfechaPipe } from './pipes/formatfecha.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     TableComponent,
     DetalleComponent,
-    TableDetalleComponent
+    TableDetalleComponent,
+    FormatfechaPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
