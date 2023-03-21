@@ -17,6 +17,20 @@ export class ServidorComponent implements OnInit {
     ip_publica:"",
     ip_local:""
   }
+  servidorUpdate:SaveServidor = {
+    nombre:"",
+    ip_publica:"",
+    ip_local:""
+  }
+  servidorModal:any ={
+    id:0,
+    nombre:"",
+    ip_publica:"",
+    ip_local:"",
+    creado:new Date(),
+    actualizado:new Date()
+
+  }
 
   constructor(private _servidorService : ServidorService) { }
 
@@ -73,6 +87,33 @@ export class ServidorComponent implements OnInit {
         )
       }
     })
+  }
+
+  mostrarUpdateServidor(id:number){
+    this._servidorService.obtenerServidor(id).subscribe({
+      next:value => {
+        this.servidorModal = value;
+      }
+    })
+  }
+
+  updateServidor(servidorModal: any){
+    this.servidorUpdate.nombre = servidorModal.nombre;
+    this.servidorUpdate.ip_publica = servidorModal.ip_publica;
+    this.servidorUpdate.ip_local = servidorModal.ip_local;
+
+    this._servidorService.updateServidor(this.servidorUpdate, servidorModal.id).subscribe({
+      next:value => {
+
+      },
+      error: err => {
+        console.log(err)
+      },
+      complete:() => {
+        this.cargarServidores();
+      }
+    });
+    //console.log(this.servidorUpdate, servidorModal.id)
   }
 
   eliminarServidor(id:number){

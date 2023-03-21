@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Josefin Sans;
+  src: url('./../../../assets/fonts/JosefinSans-Regular.ttf');
+}
+
 .bi-pencil-square {
   color: #bdbd6f;
 }
@@ -11,6 +16,8 @@
 
 td, th {
   text-align: center;
+  font-family: Josefin Sans;
+  font-size: 20px;
 }
 
 .agregar-servidor {
@@ -59,9 +66,9 @@ section {
   width: 35vw;
   padding: 10px;
   margin-top: 3vh;
-  margin-left: 5vw;
   border-radius: 10px;
   box-shadow: 0 6px 0px hsl(0, 46%, 57%);
+  font-family: Josefin Sans;
 }
 
 input {
@@ -70,12 +77,16 @@ input {
   height: 8vh;
   margin-left: 2vw;
   margin-top: 2vh;
-  font-family: Poppins;
-  font-size: 12px;
+  font-family: Josefin Sans;
+  font-size: 20px;
   font-weight: 600;
   padding-left: 2vw;
   border-radius: 5px;
   outline: none;
+}
+
+.modal {
+  font-family: Josefin Sans;
 }
 
 
@@ -89,8 +100,8 @@ input {
 }
 
 .formulario input:focus {
-  font-family: Poppins;
-  font-size: 12px;
+  font-family: Josefin Sans;
+  font-size: 20px;
   font-weight: 600;
   border: 1px solid black;
 }

@@ -10,6 +10,7 @@ export class ServidorService {
 
 
   URL:string = "http://localhost:8081/servidor";
+  headers:any = new HttpHeaders().set('Content-Type','application/json');
 
   constructor(private _http:HttpClient) { }
 
@@ -20,8 +21,16 @@ export class ServidorService {
 
   guardarServidor(saveServidor: SaveServidor):Observable<any>{
     let servidor = JSON.stringify(saveServidor);
-    let headers = new HttpHeaders().set('Content-Type','application/json');
-    return this._http.post(this.URL,  servidor,{headers: headers})
+    return this._http.post(this.URL,  servidor,{headers: this.headers})
+  }
+
+  obtenerServidor(id:number){
+    return this._http.get(this.URL+"/"+id);
+  }
+
+  updateServidor(servidorUpdate: SaveServidor, id:number){
+    let servidor = JSON.stringify(servidorUpdate);
+    return this._http.put(this.URL+"/"+id,servidor,{headers: this.headers});
   }
 
   eliminarServidor(id:number):Observable<any>{

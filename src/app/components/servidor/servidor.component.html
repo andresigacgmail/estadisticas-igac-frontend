@@ -29,7 +29,7 @@
            <td>{{servidor.nombre}}</td>
            <td>{{servidor.ip_publica}}</td>
            <td>{{servidor.ip_local}}</td>
-           <td><i class="bi bi-pencil-square pointer" data-bs-toggle="modal" data-bs-target="#actualizarModal"></i></td>
+           <td><i class="bi bi-pencil-square pointer" (click)="mostrarUpdateServidor(servidor.id)" data-bs-toggle="modal" data-bs-target="#actualizarModal"></i></td>
            <td><i class="bi bi-trash3-fill pointer" (click)="mostrarAlertEliminar(servidor.id)"></i></td>
          </tr>
          </tbody>
@@ -56,7 +56,7 @@
            <span id="nameError" class="error"></span><br>
            <input [(ngModel)]="servidor.ip_publica" type="text" id="last" placeholder="Ip Publica">
            <span id="lastError" class="error"></span><br>
-           <input [(ngModel)]="servidor.ip_local" type="email" id="address" placeholder="Ip Local">
+           <input [(ngModel)]="servidor.ip_local" type="text" id="address" placeholder="Ip Local">
            <span id="addressError" class="error"></span><br>
 
            <button id="boton" (click)="guardarServidor()" data-bs-dismiss="modal">Guardar </button>
@@ -87,16 +87,16 @@
        <div class="modal-body">
 
          <div class="formulario">
-           <input type="text" id="id" placeholder="Id" disabled>
+           <input type="text" [(ngModel)]="servidorModal.id" id="id" placeholder="Id" disabled>
            <span id="updateIdError" class="error"></span><br>
-           <input type="text" id="Nombre" placeholder="Nombre">
+           <input type="text" [(ngModel)]="servidorModal.nombre" id="Nombre" placeholder="Nombre">
            <span id="updateNameError" class="error"></span><br>
-           <input type="text" id="Ippublica" placeholder="Ip Publica">
+           <input type="text" [(ngModel)]="servidorModal.ip_publica" id="Ippublica" placeholder="Ip Publica">
            <span id="updateLastError" class="error"></span><br>
-           <input type="email" id="iplocal" placeholder="Ip Local">
+           <input type="text" [(ngModel)]="servidorModal.ip_local" id="iplocal" placeholder="Ip Local">
            <span id="updateAddressError" class="error"></span><br>
 
-           <button  id="botonUpdate">Guardar</button>
+           <button  id="botonUpdate" (click)="updateServidor(servidorModal)" data-bs-dismiss="modal">Guardar</button>
          </div>
 
        </div>
