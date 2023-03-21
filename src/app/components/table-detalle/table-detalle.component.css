@@ -6,4 +6,9 @@ table {
   margin-bottom: 400px;
 }
 
+td, th {
+  text-align: center;
+}
+
+
 

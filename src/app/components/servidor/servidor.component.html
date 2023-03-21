@@ -1,0 +1,109 @@
+
+ <div class="container mt-5">
+   <div class="row">
+     <div class="col">
+       <div class="agregar-servidor">
+         <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#agregarModal">
+            <i class="bi bi-database-fill-add"></i> <span>Agregar Servidor</span>
+         </button>
+       </div>
+     </div>
+   </div>
+
+   <div class="row mt-5">
+     <div class="col">
+       <table class="table">
+         <thead>
+         <tr>
+           <th scope="col">Id</th>
+           <th scope="col">Nombre</th>
+           <th scope="col">Ip Publica</th>
+           <th scope="col">Ip Local</th>
+           <th scope="col">Editar</th>
+           <th scope="col">Eliminar</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr *ngFor="let servidor of servidores">
+           <th scope="row">1</th>
+           <td>{{servidor.nombre}}</td>
+           <td>{{servidor.ip_publica}}</td>
+           <td>{{servidor.ip_local}}</td>
+           <td><i class="bi bi-pencil-square pointer" data-bs-toggle="modal" data-bs-target="#actualizarModal"></i></td>
+           <td><i class="bi bi-trash3-fill pointer" (click)="mostrarAlertEliminar(servidor.id)"></i></td>
+         </tr>
+         </tbody>
+       </table>
+     </div>
+   </div>
+ </div>
+
+
+<!-- Modal agregar-->
+
+ <!-- Modal -->
+ <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Servidor</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+
+         <div class="formulario">
+           <input [(ngModel)]="servidor.nombre" type="text" id="name" placeholder="Nombre">
+           <span id="nameError" class="error"></span><br>
+           <input [(ngModel)]="servidor.ip_publica" type="text" id="last" placeholder="Ip Publica">
+           <span id="lastError" class="error"></span><br>
+           <input [(ngModel)]="servidor.ip_local" type="email" id="address" placeholder="Ip Local">
+           <span id="addressError" class="error"></span><br>
+
+           <button id="boton" (click)="guardarServidor()" data-bs-dismiss="modal">Guardar </button>
+         </div>
+
+       </div>
+
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+<!--         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>-->
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- Fin Modal agregar-->
+
+
+ <!-- Modal actualizar-->
+
+ <!-- Modal -->
+ <div class="modal fade" id="actualizarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h1 class="modal-title fs-5">Actualizar Servidor</h1>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+
+         <div class="formulario">
+           <input type="text" id="id" placeholder="Id" disabled>
+           <span id="updateIdError" class="error"></span><br>
+           <input type="text" id="Nombre" placeholder="Nombre">
+           <span id="updateNameError" class="error"></span><br>
+           <input type="text" id="Ippublica" placeholder="Ip Publica">
+           <span id="updateLastError" class="error"></span><br>
+           <input type="email" id="iplocal" placeholder="Ip Local">
+           <span id="updateAddressError" class="error"></span><br>
+
+           <button  id="botonUpdate">Guardar</button>
+         </div>
+
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- Fin Modal actualizar-->

@@ -10,6 +10,8 @@ import { TableDetalleComponent } from './components/table-detalle/table-detalle.
 import { HttpClientModule} from "@angular/common/http";
 import { FormatfechaPipe } from './pipes/formatfecha.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { ServidorComponent } from './components/servidor/servidor.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { FooterComponent } from './components/footer/footer.component';
     DetalleComponent,
     TableDetalleComponent,
     FormatfechaPipe,
-    FooterComponent
+    FooterComponent,
+    ServidorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

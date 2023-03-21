@@ -1,0 +1,186 @@
+.bi-pencil-square {
+  color: #bdbd6f;
+}
+.bi-trash3-fill {
+  color: #c24343;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+td, th {
+  text-align: center;
+}
+
+.agregar-servidor {
+  display: flex;
+  justify-content: center;
+}
+
+.agregar-servidor span {
+  margin-left: 2vw;
+}
+
+
+
+
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.mensaje {
+  background-color: hsl(248, 32%, 49%);
+  color: rgb(241, 235, 235);
+  font-size: 12px;
+  padding: 10px;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  text-align: center;
+  width: 35vw;
+  border-radius: 10px;
+  margin-top: 9vh;
+  margin-left: 5vw;
+  box-shadow: 0 6px 0px hsl(0, 46%, 57%);
+}
+
+.mensaje span {
+  color: whitesmoke;
+  font-weight: 900;
+}
+
+.formulario {
+  background-color: white;
+  width: 35vw;
+  padding: 10px;
+  margin-top: 3vh;
+  margin-left: 5vw;
+  border-radius: 10px;
+  box-shadow: 0 6px 0px hsl(0, 46%, 57%);
+}
+
+input {
+  border: 1px solid hsl(0, 15%, 87%);
+  width: 29vw;
+  height: 8vh;
+  margin-left: 2vw;
+  margin-top: 2vh;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 2vw;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+
+.error-email::-webkit-input-placeholder {
+  color: hsl(0, 100%, 74%);
+}
+
+.formulario input::-webkit-input-placeholder {
+  font-weight: 600;
+}
+
+.formulario input:focus {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid black;
+}
+
+.formulario #boton,#botonUpdate {
+  background-color: hsl(154, 59%, 51%);
+  padding: 10px;
+  width: 29vw;
+  height: 8vh;
+  margin-left: 2vw;
+  margin-top: 2vh;
+  cursor: pointer;
+  color: whitesmoke;
+  outline: none;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 0 3px 0px hsl(154, 57%, 38%);
+}
+
+.error {
+  font-size: 9px;
+  color: hsl(0, 46%, 57%);
+  float: right;
+  margin-right: 2vw;
+}
+
+.formulario p {
+  font-size: 10px;
+  color: hsl(0, 4%, 62%);
+  margin-left: 4vw;
+}
+
+.formulario p span {
+  font-size: 10px;
+  color: hsl(0, 100%, 74%);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.formulario #boton:active, #botonUpdate:active {
+  background-color: hsl(154, 45%, 64%);
+  box-shadow: 0 2px 0px hsl(154, 57%, 38%);
+}
+
+footer {
+  margin-top: 9vh;
+}
+
+@media screen and (max-width: 375px) {
+
+
+
+  section {
+    display: inline;
+  }
+
+  .texto {
+    width: 80vw;
+    margin-top: 15vh;
+    margin-left: 5vw;
+    text-align: center;
+  }
+
+  section article h1 {
+    width: 80vw;
+    font-size: 30px;
+  }
+
+  .mensaje {
+    font-size: 12px;
+    text-align: center;
+    width: 75vw;
+    margin-top: 9vh;
+    margin-left: 7vw;
+  }
+
+  .formulario {
+    width: 75vw;
+    margin-top: 3vh;
+    margin-left: 7vw;
+  }
+
+  .formulario input {
+    width: 69vw;
+  }
+
+  .formulario #boton {
+    width: 72vw;
+    margin-left: 2vw;
+    margin-top: 2vh;
+  }
+
+}
