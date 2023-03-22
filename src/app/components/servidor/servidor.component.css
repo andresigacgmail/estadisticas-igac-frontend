@@ -63,7 +63,7 @@ section {
 
 .formulario {
   background-color: white;
-  width: 35vw;
+  width: 100%;
   padding: 10px;
   margin-top: 3vh;
   border-radius: 10px;
@@ -73,7 +73,7 @@ section {
 
 input {
   border: 1px solid hsl(0, 15%, 87%);
-  width: 29vw;
+  width: 90%;
   height: 8vh;
   margin-left: 2vw;
   margin-top: 2vh;
@@ -109,7 +109,7 @@ input {
 .formulario #boton,#botonUpdate {
   background-color: hsl(154, 59%, 51%);
   padding: 10px;
-  width: 29vw;
+  width: 90%;
   height: 8vh;
   margin-left: 2vw;
   margin-top: 2vh;
