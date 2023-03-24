@@ -1,8 +1,7 @@
 export interface Servidor {
-  id:number,
+  t_id:number,
   nombre:string,
-  ip_publica:string,
-  ip_local:string,
-  creado:Date,
-  actualizado:Date
+  direccion_ip_publica:string,
+  direccion_ip_privada:string,
+  puerto:string
 }

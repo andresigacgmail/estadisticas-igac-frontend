@@ -14,21 +14,22 @@ export class ServidorComponent implements OnInit {
   servidores:Array<Servidor> = [];
   servidor:SaveServidor = {
     nombre:"",
-    ip_publica:"",
-    ip_local:""
+    direccion_ip_publica:"",
+    direccion_ip_privada:"",
+    puerto:""
   }
   servidorUpdate:SaveServidor = {
     nombre:"",
-    ip_publica:"",
-    ip_local:""
+    direccion_ip_publica:"",
+    direccion_ip_privada:"",
+    puerto:""
   }
   servidorModal:any ={
-    id:0,
+    t_id:0,
     nombre:"",
-    ip_publica:"",
-    ip_local:"",
-    creado:new Date(),
-    actualizado:new Date()
+    direccion_ip_publica:"",
+    direccion_ip_privada:"",
+    puerto:""
 
   }
 
@@ -59,8 +60,9 @@ export class ServidorComponent implements OnInit {
         this.cargarServidores();
         this.servidor = {
           nombre:"",
-          ip_publica:"",
-          ip_local:""
+          direccion_ip_publica:"",
+          direccion_ip_privada:"",
+          puerto:""
         }
       }
     });
@@ -99,10 +101,12 @@ export class ServidorComponent implements OnInit {
 
   updateServidor(servidorModal: any){
     this.servidorUpdate.nombre = servidorModal.nombre;
-    this.servidorUpdate.ip_publica = servidorModal.ip_publica;
-    this.servidorUpdate.ip_local = servidorModal.ip_local;
+    this.servidorUpdate.direccion_ip_publica = servidorModal.direccion_ip_publica;
+    this.servidorUpdate.direccion_ip_privada = servidorModal.direccion_ip_privada;
+    this.servidorUpdate.puerto = servidorModal.puerto;
 
-    this._servidorService.updateServidor(this.servidorUpdate, servidorModal.id).subscribe({
+    console.log(this.servidorModal)
+    this._servidorService.updateServidor(this.servidorUpdate, servidorModal.t_id).subscribe({
       next:value => {
 
       },

@@ -36,11 +36,10 @@ export class DetalleComponent implements OnInit {
   estadisticas:Array<Estadistica> = [];
   servidor:Servidor = {
     nombre:"",
-    id:0,
-    actualizado:new Date(),
-    creado:new Date(),
-    ip_local:"",
-    ip_publica:""
+    t_id:0,
+    direccion_ip_privada:"",
+    direccion_ip_publica:"",
+    puerto:""
   };
   disco:Disco =  {
     disco_disponible: 0,
