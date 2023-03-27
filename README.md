@@ -4,7 +4,7 @@
 
 <h1 align="center">
   <p align="center">Cliente restapi</p>
-  <img src="https://raw.githubusercontent.com/andresigacgmail/generar-uso-storage/main/src/main/resources/static/img/generar%20uso.gif" alt="encriptador texto">
+  <img src="https://i.ibb.co/8M4zzXB/front-estadisticas.gif" alt="encriptador texto">
 </h1>
 
 > **Frontend para la gestión de servidores y estadisticas.**
