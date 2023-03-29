@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class EstadisticaService {
 
-  URL:string = "http://localhost:8081/";
+  URL:string = "http://10.23.13.10:8081/";
 
   constructor(private _http:HttpClient) { }
 
