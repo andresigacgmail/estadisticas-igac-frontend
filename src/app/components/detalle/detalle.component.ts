@@ -143,7 +143,7 @@ export class DetalleComponent implements OnInit {
           labels: this.dataMeses.map((row: { mes: any; }) => row.mes),
           datasets: [
             {
-              label: `Incremento por año, Tamaño Max: ${tamanoTotal}`,
+              label: `Incremento por año GB, Tamaño Max: ${tamanoTotal} GB`,
               data: this.dataMeses.map((row: { uso: any; }) => row.uso)
             }
           ]
