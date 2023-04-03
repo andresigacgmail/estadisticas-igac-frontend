@@ -39,7 +39,13 @@ export class DetalleComponent implements OnInit {
     t_id:0,
     direccion_ip_privada:"",
     direccion_ip_publica:"",
-    puerto:""
+    puerto:"",
+    usuario:"",
+    contrasenia:"",
+    alias:"",
+    uso:"",
+    dominio:"",
+    tipo_protocolo:0
   };
   disco:Disco =  {
     disco_disponible: 0,

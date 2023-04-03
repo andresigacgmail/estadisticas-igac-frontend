@@ -60,8 +60,20 @@
            <span id="lastError" class="error"></span><br>
            <input [(ngModel)]="servidor.direccion_ip_privada" type="text" id="address" placeholder="Ip Local">
            <span id="addressError" class="error"></span><br>
-           <input [(ngModel)]="servidor.puerto" type="text" id="privada" placeholder="puerto">
-           <span id="privadaError" class="error"></span><br>
+           <input [(ngModel)]="servidor.puerto" type="text" id="puerto" placeholder="puerto">
+           <span id="puertoError" class="error"></span><br>
+           <input [(ngModel)]="servidor.usuario" type="text" id="usuario" placeholder="usuario">
+           <span id="usuarioError" class="error"></span><br>
+           <input [(ngModel)]="servidor.contrasenia" type="text" id="constrasenia" placeholder="contraseña">
+           <span id="constraseniaError" class="error"></span><br>
+           <input [(ngModel)]="servidor.alias" type="text" id="alias" placeholder="alias">
+           <span id="aliasError" class="error"></span><br>
+           <input [(ngModel)]="servidor.uso" type="text" id="uso" placeholder="uso">
+           <span id="usoError" class="error"></span><br>
+           <input [(ngModel)]="servidor.dominio" type="text" id="dominio" placeholder="dominio">
+           <span id="dominioError" class="error"></span><br>
+           <input [(ngModel)]="servidor.tipo_protocolo" type="text" id="protocolo" placeholder="protocolo">
+           <span id="protocoloError" class="error"></span><br>
 
            <button id="boton" (click)="guardarServidor()" data-bs-dismiss="modal">Guardar </button>
          </div>
@@ -99,8 +111,19 @@
            <span id="updateLastError" class="error"></span><br>
            <input type="text" [(ngModel)]="servidorModal.direccion_ip_privada" id="iplocal" placeholder="Ip Local">
            <span id="updateAddressError" class="error"></span><br>
-           <input [(ngModel)]="servidorModal.puerto" type="text" id="puerto" placeholder="Ip Local">
-           <span id="puertoError" class="error"></span><br>
+           <input [(ngModel)]="servidorModal.puerto" type="text" id="updatePuerto" placeholder="Ip Local">
+           <span id="updatePuertoError" class="error"></span><br>
+           <input [(ngModel)]="servidor.usuario" type="text" id="usuarioUpdate" placeholder="usuario">
+           <span id="usuarioUpdateError" class="error"></span><br>
+           <input [(ngModel)]="servidor.contrasenia" type="text" id="constraseniaUpdate" placeholder="contraseña">
+           <span id="constraseniaUpdateError" class="error"></span><br>
+           <input [(ngModel)]="servidor.alias" type="text" id="aliasUpdate" placeholder="alias">
+           <span id="aliasUpdateError" class="error"></span><br>
+           <input [(ngModel)]="servidor.uso" type="text" id="usoUpdate" placeholder="uso">
+           <span id="usoUpdateError" class="error"></span><br>
+           <input [(ngModel)]="servidor.dominio" type="text" id="dominioUpdate" placeholder="dominio">
+           <span id="dominioUpdateError" class="error"></span><br>
+           <input [(ngModel)]="servidor.tipo_protocolo" type="text" id="protocoloUpdate" placeholder="protocolo">
 
            <button  id="botonUpdate" (click)="updateServidor(servidorModal)" data-bs-dismiss="modal">Guardar</button>
          </div>

@@ -16,20 +16,38 @@ export class ServidorComponent implements OnInit {
     nombre:"",
     direccion_ip_publica:"",
     direccion_ip_privada:"",
-    puerto:""
+    puerto:"",
+    usuario:"",
+    contrasenia:"",
+    alias:"",
+    uso:"",
+    dominio:"",
+    tipo_protocolo:0
   }
   servidorUpdate:SaveServidor = {
     nombre:"",
     direccion_ip_publica:"",
     direccion_ip_privada:"",
-    puerto:""
+    puerto:"",
+    usuario:"",
+    contrasenia:"",
+    alias:"",
+    uso:"",
+    dominio:"",
+    tipo_protocolo:0
   }
   servidorModal:any ={
     t_id:0,
     nombre:"",
     direccion_ip_publica:"",
     direccion_ip_privada:"",
-    puerto:""
+    puerto:"",
+    usuario:"",
+    contrasenia:"",
+    alias:"",
+    uso:"",
+    dominio:"",
+    tipo_protocolo:0
 
   }
 
@@ -62,7 +80,13 @@ export class ServidorComponent implements OnInit {
           nombre:"",
           direccion_ip_publica:"",
           direccion_ip_privada:"",
-          puerto:""
+          puerto:"",
+          usuario:"",
+          contrasenia:"",
+          alias:"",
+          uso:"",
+          dominio:"",
+          tipo_protocolo:0
         }
       }
     });
