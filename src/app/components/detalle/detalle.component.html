@@ -6,9 +6,17 @@
       <h5 class="card-title">ip publica: {{servidor.direccion_ip_publica}}</h5>
       <p class="card-text">ip local: {{servidor.direccion_ip_privada}}</p>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item green"><span class="green">Total: </span>{{disco.disco_total}}</li>
-        <li class="list-group-item yellow"><span class="yellow">En Uso: </span>{{disco.disco_uso}}</li>
-        <li class="list-group-item blue"><span class="blue">Disponible: </span>{{disco.disco_disponible}}</li>
+        <ng-container *ngIf="disco != undefined; else sinDatos">
+          <li class="list-group-item green"><span class="green">Total: </span>{{disco.disco_total}}</li>
+          <li class="list-group-item yellow"><span class="yellow">En Uso: </span>{{disco.disco_uso}}</li>
+          <li class="list-group-item blue"><span class="blue">Disponible: </span>{{disco.disco_disponible}}</li>
+        </ng-container>
+        <ng-template #sinDatos>
+          <li class="list-group-item green"><span class="green">Total: </span>No hay datos</li>
+          <li class="list-group-item yellow"><span class="yellow">En Uso: </span>No hay datos</li>
+          <li class="list-group-item blue"><span class="blue">Disponible: </span>No hay datos</li>
+        </ng-template>
+
       </ul>
     </div>
   </div>

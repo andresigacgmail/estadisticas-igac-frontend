@@ -9,8 +9,8 @@ import {SaveServidor} from "../modelos/SaveServidor";
 export class ServidorService {
 
 
-  //URL:string = "http://10.23.13.10:8081/servidor";
-  URL:string = "http://localhost:8081/servidor";
+  URL:string = "http://10.23.13.10:8081/servidor";
+  //URL:string = "http://localhost:8081/servidor";
   headers:any = new HttpHeaders().set('Content-Type','application/json');
 
   constructor(private _http:HttpClient) { }

@@ -11,14 +11,26 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let estadistica of estadisticas">
-    <th scope="row">{{estadistica.disco_total}}</th>
-    <td>{{estadistica.disco_disponible}}</td>
-    <td>{{estadistica.disco_uso}}</td>
-    <td>{{estadistica.memoria_total}}</td>
-    <td>{{estadistica.memoria_disponible}}</td>
-    <td>{{estadistica.memoria_uso}}</td>
-    <td>{{estadistica.creado | formatfecha }}</td>
-  </tr>
+  <ng-container *ngIf="estadisticas.length > 0; else tabla">
+    <tr *ngFor="let estadistica of estadisticas">
+      <th scope="row">{{estadistica.disco_total}}</th>
+      <td>{{estadistica.disco_disponible}}</td>
+      <td>{{estadistica.disco_uso}}</td>
+      <td>{{estadistica.memoria_total}}</td>
+      <td>{{estadistica.memoria_disponible}}</td>
+      <td>{{estadistica.memoria_uso}}</td>
+      <td>{{estadistica.creado | formatfecha }}</td>
+    </tr>
+  </ng-container>
+  <ng-template #tabla><tr *ngFor="let estadistica of estadisticas">
+    <th scope="row">No hay datos</th>
+    <td>No hay datos</td>
+    <td>No hay datos</td>
+    <td>No hay datos}</td>
+    <td>No hay datos</td>
+    <td>No hay datos</td>
+    <td>No hay datos | formatfecha }}</td>
+  </tr>   </ng-template>
+
   </tbody>
 </table>

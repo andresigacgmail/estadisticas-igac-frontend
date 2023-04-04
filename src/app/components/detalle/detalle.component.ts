@@ -5,6 +5,7 @@ import {Estadistica} from "../../modelos/Estadistica";
 import { EstadisticaService } from "../../services/estadistica.service";
 import {Servidor} from "../../modelos/Servidor";
 import {Disco} from "../../modelos/Disco";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-detalle',
@@ -66,21 +67,27 @@ export class DetalleComponent implements OnInit {
   }
 
   obtenerServidorDetalles(){
-    this.estadisticaService.cargarEstadisticasServidor(this.id).subscribe(estadistica => {
-      this.servidor = estadistica.servidor;
-      this.estadisticas = estadistica.estadisticas;
-      this.listaAnos = estadistica.anos;
-      this.disco = estadistica.estadisticas[0];
-      this.data[0] = this.disco.disco_disponible;
-      this.data[1] = this.disco.disco_uso;
+    this.estadisticaService.cargarEstadisticasServidor(this.id).subscribe({
+      next: (estadistica) => {
+        this.servidor = estadistica.servidor;
+        this.estadisticas = estadistica.estadisticas;
+        this.listaAnos = estadistica.anos;
+        if(estadistica.estadisticas[0] != undefined){
+          this.disco = estadistica.estadisticas[0];
+          this.data[0] = this.disco.disco_disponible;
+          this.data[1] = this.disco.disco_uso;
+          this.cargarGraficoPie(this.data);
+        }else{
+          Swal.fire('No hay datos')
+        }
 
-
-      this.cargarGraficoPie(this.data);
-    })
+      },
+      error:(err) => console.log(err),
+      complete:() => { }
+    });
   }
 
   private cargarGraficoPie(data:Array<number>){
-
 
     new Chart('myChart',
       {
